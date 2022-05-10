@@ -8,6 +8,8 @@ local format = function()
     print("Missing executable 'isort'")
     return
   end
+  local bufname = vim.api.nvim_buf_get_name(0)
+
   vim.api.nvim_command("write")
   vim.api.nvim_command("silent !black " .. bufname)
   vim.api.nvim_command("silent !isort " .. bufname)
